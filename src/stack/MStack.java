@@ -65,11 +65,9 @@ public class MStack<T> implements Iterable<T> {
 
     private class IterLisner implements Iterator<T> {
         private Node temp;
-        private int i;
 
         public IterLisner() {
             temp = first;
-            i = N;
         }
 
         @Override
