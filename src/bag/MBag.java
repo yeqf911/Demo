@@ -20,9 +20,24 @@ public class MBag<T> implements Iterable<T> {
         N = 0;
     }
 
+    public static void main(String[] args) {
+        MBag<String> b = new MBag<>();
+        String a = "Hello ";
+        String s = "I am ";
+        String c = "yeqianfeng";
+        b.addItem(a);
+        b.addItem(s);
+        b.addItem(c);
+        Iterator<String> iter = b.iterator();
+        while (iter.hasNext()) {
+            System.out.println(iter.next());
+        }
+    }
+
     public boolean isEmpty() {
         return first == null;
     }
+
 
     public int size() {
         return N;
@@ -62,19 +77,5 @@ public class MBag<T> implements Iterable<T> {
     private class Node {
         T item;
         Node next;
-    }
-    
-    public static void main(String[] args) {
-        MBag<String> b = new MBag<>();
-        String a = "Hello ";
-        String s = "I am ";
-        String c = "yeqianfeng";
-        b.addItem(a);
-        b.addItem(s);
-        b.addItem(c);
-        Iterator<String> iter = b.iterator();
-        while (iter.hasNext()){
-            System.out.println(iter.next());
-        }
     }
 }
