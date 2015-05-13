@@ -1,3 +1,7 @@
+package bag;
+
+import java.util.Iterator;
+
 /*************************************************************************
     > File Name: MBag.java
     > Author: yeqianfeng
@@ -21,7 +25,7 @@ public class MBag<T> implements Iterable<T> {
 		return N;
 	}
 
-	public addItem(T t) {
+	public void addItem(T t) {
 		Node oldfirst = first;
 		first = new Node();
 		first.item = t;
