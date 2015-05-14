@@ -30,6 +30,9 @@ public class UnionFind {
             System.out.println(p + " " + q);
         }
         System.out.println("count: " + uf.getCount());
+        uf.displayId();
+        System.out.println();
+
     }
 
     public void union(int p, int q) {
@@ -54,5 +57,11 @@ public class UnionFind {
 
     public int getCount() {
         return count;
+    }
+
+    public void displayId() {
+        for (int i = 0; i < id.length; i++) {
+            System.out.print(find(i)+" ");
+        }
     }
 }
