@@ -23,7 +23,7 @@ public class WeightQuickUnion {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int N = in.nextInt();
-        UnionFind uf = new UnionFind(N);
+        WeightQuickUnion uf = new WeightQuickUnion(N);
 		StopWatch timer = new StopWatch();
         while (in.hasNext()){
             int p = in.nextInt();

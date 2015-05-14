@@ -36,6 +36,7 @@ public class WeightedQuickUnionUF {
         Scanner in = new Scanner(System.in);
         int N = in.nextInt();
         WeightedQuickUnionUF uf = new WeightedQuickUnionUF(N);
+        StopWatch timer = new StopWatch();
         while (in.hasNext()) {
             int p = in.nextInt();
             int q = in.nextInt();
@@ -44,6 +45,8 @@ public class WeightedQuickUnionUF {
             System.out.println(p + " " + q);
         }
         System.out.println(uf.count() + " components");
+        double time = timer.elapsedTime();
+        System.out.println("time: " + time);
     }
 
     /**
@@ -63,19 +66,19 @@ public class WeightedQuickUnionUF {
      * @throws java.lang.IndexOutOfBoundsException unless 0 <= p < N
      */
     public int find(int p) {
-        validate(p);
+        //validate(p);
         while (p != parent[p])
             p = parent[p];
         return p;
     }
 
     // validate that p is a valid index
-    private void validate(int p) {
+/*    private void validate(int p) {
         int N = parent.length;
         if (p < 0 || p >= N) {
             throw new IndexOutOfBoundsException("index " + p + " is not between 0 and " + N);
         }
-    }
+    }*/
 
     /**
      * Are the two sites <tt>p</tt> and <tt>q</tt> in the same component?
@@ -113,6 +116,5 @@ public class WeightedQuickUnionUF {
         }
         count--;
     }
-
 }
 
