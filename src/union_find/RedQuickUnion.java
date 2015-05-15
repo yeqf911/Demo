@@ -22,6 +22,7 @@ public class RedQuickUnion {
         Scanner in = new Scanner(System.in);
         int N = in.nextInt();
         RedQuickUnion uf = new RedQuickUnion(N);
+		StopWatch timer = new StopWatch();
         while (in.hasNext()) {
             int p = in.nextInt();
             int q = in.nextInt();
@@ -34,7 +35,9 @@ public class RedQuickUnion {
            // uf.displayId();
             //System.out.println(uf.getNum());
         }
+		double time = timer.elapsedTime();
         System.out.println("count: " + uf.getCount());
+		System.out.println("time: " + time);
         System.out.println();
     }
 
@@ -52,12 +55,12 @@ public class RedQuickUnion {
 		int root = p;
         while (root != id[root]) {
             root = id[root];
-       //     num += 2;
+            //     num += 2;
         }
         /**
          * 下面的代码是为了递归的使所有root下面
 		 * 的节点都直接连到root下面
-         * */
+         **/
 		while (p != root){
 			int n = id[p];
 			id[p] = root;
