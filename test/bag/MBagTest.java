@@ -23,7 +23,7 @@ public class MBagTest {
     }
 
     @Ignore
-    //@Test
+    @Test
     public void test1() {
         System.out.println("this is test1");
     }

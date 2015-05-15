@@ -21,4 +21,9 @@ public class SayHelloTest {
         assertEquals("Hello",sayHello.say());
         System.out.println("tongguo");
     }
+
+    @Test
+    public void dt(){
+        System.out.println("fdsfds");
+    }
 }
