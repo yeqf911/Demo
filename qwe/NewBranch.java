@@ -5,5 +5,6 @@ public class NewBranch {
     public void aVoid() {
         System.out.println("new branch");
         System.out.println("in newBranch");
+        System.out.println("in second");
     }
 }
