@@ -1,3 +1,5 @@
+package union_find;
+
 import java.util.Scanner;
 
 /**
@@ -77,18 +79,5 @@ public class RedQuickUnion {
             System.out.print(find(i) + " ");
         }
         System.out.println();
-    }
-}
-
-class StopWatch {
-    private final long start;
-
-    public StopWatch() {
-        start = System.currentTimeMillis();
-    }
-
-    public double elapsedTime() {
-        long now = System.currentTimeMillis();
-        return (now - start) / 1000.0;
     }
 }
