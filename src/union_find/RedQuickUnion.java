@@ -54,6 +54,10 @@ public class RedQuickUnion {
             root = id[root];
        //     num += 2;
         }
+        /**
+         * 下面的代码是为了递归的使所有root下面
+		 * 的节点都直接连到root下面
+         * */
 		while (p != root){
 			int n = id[p];
 			id[p] = root;
