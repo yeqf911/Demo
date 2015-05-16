@@ -17,7 +17,7 @@ public class Selection {
                     min = j;    //find the index of the minimum element
                 }
             }
-            exch(a,i,min);
+            exch(a, i, min);
         }
     }
 
@@ -40,7 +40,7 @@ public class Selection {
 
     public static boolean isSorted(Comparable[] a) {
         for (int i = 1; i < a.length; i++) {
-            if (less(a[i],a[i-1]))
+            if (less(a[i], a[i - 1]))
                 return false;
         }
         return true;

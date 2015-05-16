@@ -1,12 +1,16 @@
 package sort;
 
+import java.util.Scanner;
+
 /**
  * Created by yeqf on 5/16/15.
  */
 public class Insertion {
     public static void sort(Comparable[] a) {
-        for (int i = 0; i < a.length-1; i++) {
-
+        for (int i = 1; i < a.length; i++) {
+            for (int j = i; j > 0 && less(a[j], a[j - 1]); j--) {
+                exch(a, j, j - 1);
+            }
         }
     }
 
@@ -32,5 +36,20 @@ public class Insertion {
             if (less(a[i], a[i - 1]))
                 return false;
         return true;
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        Integer[] a;
+        int N = in.nextInt();
+        a = new Integer[N];
+        for (int i = 0; i < N; i++) {
+            a[i] = new Integer(in.nextInt());
+        }
+        System.out.println("----before sort----");
+        Selection.show(a);
+        Selection.sort(a);
+        System.out.println("----after sort----");
+        Selection.show(a);
     }
 }
