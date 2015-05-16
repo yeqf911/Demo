@@ -47,9 +47,9 @@ public class Insertion {
             a[i] = new Integer(in.nextInt());
         }
         System.out.println("----before sort----");
-        Selection.show(a);
-        Selection.sort(a);
+        Insertion.show(a);
+        Insertion.sort(a);
         System.out.println("----after sort----");
-        Selection.show(a);
+        Insertion.show(a);
     }
 }
