@@ -2,12 +2,11 @@ package sort;
 
 import org.junit.Test;
 
-import java.util.IntSummaryStatistics;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by yeqf on 5/16/15.
+ *
  */
 public class SelectionTest {
 
@@ -20,6 +19,6 @@ public class SelectionTest {
         a[3] = 7;
         a[4] = 4;
         Selection.sort(a);
-        assertEquals(true,Selection.isSorted(a));
+        assertEquals(true,Insertion.isSorted(a));
     }
 }

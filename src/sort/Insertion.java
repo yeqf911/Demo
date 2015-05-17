@@ -8,7 +8,9 @@ import java.util.Scanner;
 public class Insertion {
     public static void sort(Comparable[] a) {
         for (int i = 1; i < a.length; i++) {
-            for (int j = i; j > 0 && less(a[j], a[j - 1]); j--) {
+            for (int j = i; j > 0;  j--) {
+                if (less(a[j-1], a[j]))
+                    continue;
                 exch(a, j, j - 1);
             }
         }
@@ -31,7 +33,7 @@ public class Insertion {
         System.out.println();
     }
 
-    private static boolean isSorted(Comparable[] a) {
+    public static boolean isSorted(Comparable[] a) {
         for (int i = 1; i < a.length; i++)
             if (less(a[i], a[i - 1]))
                 return false;

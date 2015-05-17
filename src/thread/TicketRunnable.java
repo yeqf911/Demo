@@ -28,8 +28,6 @@ class MyThread implements Runnable {
                     " test count: " + testNum);
         }
     }
-
-
 }
 
 public class TicketRunnable{
