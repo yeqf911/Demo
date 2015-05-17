@@ -32,12 +32,12 @@ public class Shell {
         int h = 1;
         int N = a.length;
         while (h < N / 3) {
-            h = N / 3;
+            h = N / 3;      //先找到不小于N/3的第一个h的位置
         }
 
         while (h >= 1) {
             for (int i = h; i < N; i++) {
-                for (int j = i; j >= h && less(a[j], a[j - h]); j -= h) {
+                for (int j = i; j >= h && less(a[j], a[j - h]); j -= h) {// 步进为h
                     exch(a, j, j - h);
                 }
             }
