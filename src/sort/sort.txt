@@ -1,0 +1,125 @@
+for 10000 Double
+time of Insetion: 0.0
+time of Shell: 0.014
+Insetion / Shell: 0.0
+
+for 10000 Double
+time of Insetion: 0.0
+time of Merge: 0.01
+Insetion / Merge: 0.0
+
+for 10000 Double
+time of Insetion: 0.0
+time of MergeBU: 0.008
+Insetion / MergeBU: 0.0
+
+for 10000 Double
+time of Insetion: 0.0
+time of Quick: 0.006
+Insetion / Quick: 0.0
+
+for 10000 Double
+time of Selection: 0.114
+time of Shell: 0.011
+Selection / Shell: 10.363636363636365
+
+for 10000 Double
+time of Selection: 0.114
+time of Merge: 0.006
+Selection / Merge: 19.0
+
+for 10000 Double
+time of Selection: 0.114
+time of MergeBU: 0.007
+Selection / MergeBU: 16.285714285714285
+
+for 10000 Double
+time of Selection: 0.116
+time of Quick: 0.007
+Selection / Quick: 16.571428571428573
+
+for 100000 Double
+time of Insetion: 0.0
+time of Shell: 0.057
+Insetion / Shell: 0.0
+
+for 100000 Double
+time of Insetion: 0.0
+time of Merge: 0.092
+Insetion / Merge: 0.0
+
+for 100000 Double
+time of Insetion: 0.001
+time of MergeBU: 0.087
+Insetion / MergeBU: 0.01149425287356322
+
+for 100000 Double
+time of Insetion: 0.0
+time of Quick: 0.047
+Insetion / Quick: 0.0
+
+for 100000 Double
+time of Selection: 12.157
+time of Shell: 0.057
+Selection / Shell: 213.28070175438594
+
+for 100000 Double
+time of Selection: 12.668
+time of Merge: 0.089
+Selection / Merge: 142.3370786516854
+
+for 100000 Double
+time of Selection: 12.769
+time of MergeBU: 0.091
+Selection / MergeBU: 140.3186813186813
+
+for 100000 Double
+time of Selection: 12.12
+time of Quick: 0.04
+Selection / Quick: 303.0
+
+for 1000000 Double
+time of Insetion: 0.0
+time of Shell: 1.101
+Insetion / Shell: 0.0
+
+for 1000000 Double
+time of Insetion: 0.0
+time of Merge: 0.44
+Insetion / Merge: 0.0
+
+for 1000000 Double
+time of Insetion: 0.0
+time of MergeBU: 0.472
+Insetion / MergeBU: 0.0
+
+for 1000000 Double
+time of Insetion: 0.0
+time of Quick: 0.309
+Insetion / Quick: 0.0
+
+for 1000000 Double
+time of Selection: 4189.323
+time of Shell: 1.087
+Selection / Shell: 3854.022999080037
+
+for 1000000 Double
+time of Selection: 4166.708
+time of Merge: 0.422
+Selection / Merge: 9873.715639810425
+
+for 1000000 Double
+time of Selection: 4172.186
+time of MergeBU: 0.431
+Selection / MergeBU: 9680.245939675173
+
+for 1000000 Double
+time of Selection: 4164.225
+time of Quick: 0.319
+Selection / Quick: 13053.996865203762
+
+for 1000000 Double
+time of Merge: 0.462
+time of Quick: 0.327
+Merge / Quick: 1.4128440366972477
+
