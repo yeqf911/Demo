@@ -4,20 +4,12 @@ package stabalpartner;
  * Created by yeqf on 5/25/15.
  */
 public class StablePartner {
- /*   private final static int g1 = 0;
-    private final static int g2 = 1;
-    private final static int g3 = 2;
-    private final static int b1 = 0;
-    private final static int b2 = 1;
-    private final static int b3 = 2;*/
-
-
     public static void main(String[] args) {
         Boy[] boys = new Boy[4];
-        boys[0] = new Boy(3, 0, 1, 2);
-        boys[1] = new Boy(1, 2, 0, 3);
-        boys[2] = new Boy(1, 3, 2, 0);
-        boys[3] = new Boy(2, 0, 3, 1);
+        boys[3] = new Boy(3, 0, 1, 2);
+        boys[2] = new Boy(1, 2, 0, 3);
+        boys[1] = new Boy(3, 1, 2, 0);
+        boys[0] = new Boy(2, 0, 3, 1);
         Girl[] girls = new Girl[4];
         girls[0] = new Girl(3, 0, 2, 1);
         girls[1] = new Girl(0, 2, 1, 3);
@@ -27,9 +19,7 @@ public class StablePartner {
         boolean flag = true;
 
         while (flag) {
-            if (boys[0].hasPart() && boys[1].hasPart() && boys[2].hasPart() && boys[3].hasPart()) {
-                flag = false;
-            }
+
 
             for (int i = 0; i < 4; i++) {
                 Boy boy = boys[i];
@@ -40,7 +30,6 @@ public class StablePartner {
                             girls[girlId].getBoyFromId(i).setIsAspired(true);
                             break;
                         }
-
                     }
                 }
             }
@@ -63,6 +52,17 @@ public class StablePartner {
                         break;
                     }
                 }
+            }
+
+            /*for (int i = 0; i < 4; i++) {
+                for (int j = 0; j < 4; j++) {
+                    girls[i].getBoyFromOrd(j).setIsAspired(false);
+
+                }
+            }*/
+
+            if (boys[0].hasPart() && boys[1].hasPart() && boys[2].hasPart() && boys[3].hasPart()) {
+                flag = false;
             }
         }
 
