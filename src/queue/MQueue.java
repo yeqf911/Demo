@@ -1,6 +1,5 @@
 package queue;
 
-import java.sql.SQLSyntaxErrorException;
 import java.util.Iterator;
 
 /**

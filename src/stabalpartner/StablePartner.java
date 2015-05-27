@@ -1,70 +1,107 @@
 package stabalpartner;
 
-import com.sun.org.apache.bcel.internal.generic.RETURN;
-
 /**
  * Created by yeqf on 5/25/15.
  */
 public class StablePartner {
-    private final static int g1 = 0;
+ /*   private final static int g1 = 0;
     private final static int g2 = 1;
     private final static int g3 = 2;
     private final static int b1 = 0;
     private final static int b2 = 1;
-    private final static int b3 = 2;
+    private final static int b3 = 2;*/
 
 
     public static void main(String[] args) {
-        Boy[] boys = new Boy[3];
-        boys[0] = new Boy(g2, 5, g1);
-        boys[1] = new Boy(g1, g2, g3);
-        boys[2] = new Boy(g3, g2, g1);
-        Girl[] girls = new Girl[3];
-        girls[0] = new Girl(b3, b2, b1);
-        girls[1] = new Girl(b1, b3, b2);
-        girls[2] = new Girl(b3, b2, b1);
+        Boy[] boys = new Boy[4];
+        boys[0] = new Boy(3, 0, 1, 2);
+        boys[1] = new Boy(1, 2, 0, 3);
+        boys[2] = new Boy(1, 3, 2, 0);
+        boys[3] = new Boy(2, 0, 3, 1);
+        Girl[] girls = new Girl[4];
+        girls[0] = new Girl(3, 0, 2, 1);
+        girls[1] = new Girl(0, 2, 1, 3);
+        girls[2] = new Girl(0, 1, 2, 3);
+        girls[3] = new Girl(3, 0, 2, 1);
 
         boolean flag = true;
 
         while (flag) {
-            for (int i = 0; i < 3; i++) {
-                if (!boys[i].hasPart()) {
-                    for (int j = 0; j < 3; j++) {
-                        int currgirl = boys[i].getGirl(j);
-                        if (!girls[currgirl].hasPart()) {
-                            girls[currgirl].setPartner(i);
-                            boys[i].setPartner(currgirl);
-                            break;
-                        } else if (girls[currgirl].getId(i) >
-                                girls[currgirl].getId(girls[currgirl].getPartner())) {
-                            boys[girls[currgirl].getPartner()].setPartner(-1);
-                            girls[currgirl].setPartner(i);
-                            boys[i].setPartner(currgirl);
+            if (boys[0].hasPart() && boys[1].hasPart() && boys[2].hasPart() && boys[3].hasPart()) {
+                flag = false;
+            }
+
+            for (int i = 0; i < 4; i++) {
+                Boy boy = boys[i];
+                if (!boy.hasPart()) {
+                    for (int j = 0; j < 4; j++) {
+                        int girlId = boy.getGirlFromOrd(j).getId();
+                        if (!boy.getGirlFromOrd(j).getIsRefused()) {
+                            girls[girlId].getBoyFromId(i).setIsAspired(true);
                             break;
                         }
+
                     }
                 }
             }
 
-            if (boys[0].hasPart() && boys[1].hasPart() && boys[2].hasPart()) {
-                flag = false;
+            for (int i = 0; i < 4; i++) {
+                Girl girl = girls[i];
+                for (int j = 0; j < 4; j++) {
+                    if (girl.getBoyFromOrd(j).getAspired()) {
+                        for (int k = j + 1; k < 4; k++) {
+                            if (girl.getBoyFromOrd(k).getAspired()) {
+                                int boyId = girl.getBoyFromOrd(k).getId();
+                                boys[boyId].getGirlFromId(i).setIsRefused(true);
+                                if (girl.getPartner() == boyId) {
+                                    boys[boyId].setPartner(-1);
+                                }
+                            }
+                        }
+                        girl.setPartner(girl.getBoyFromOrd(j).getId());
+                        boys[girl.getBoyFromOrd(j).getId()].setPartner(i);
+                        break;
+                    }
+                }
             }
         }
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 4; i++) {
             System.out.println("boy " + i + " de partner is "
                     + "girl " + boys[i].getPartner());
         }
     }
 
     private static class Boy {
-        private int[] girls = new int[3];
+        private GirlList[] girlLists = new GirlList[4];
         private int partner = -1;
 
-        public Boy(int a, int b, int c) {
-            girls[0] = a;
-            girls[1] = b;
-            girls[2] = c;
+        private class GirlList {
+            private boolean isRefused = false;
+            private int id;
+
+            public GirlList(int id) {
+                this.id = id;
+            }
+
+            public void setIsRefused(boolean flag) {
+                isRefused = flag;
+            }
+
+            public boolean getIsRefused() {
+                return isRefused;
+            }
+
+            public int getId() {
+                return id;
+            }
+        }
+
+        public Boy(int a, int b, int c, int d) {
+            girlLists[0] = new GirlList(a);
+            girlLists[1] = new GirlList(b);
+            girlLists[2] = new GirlList(c);
+            girlLists[3] = new GirlList(d);
         }
 
         public int getPartner() {
@@ -76,22 +113,55 @@ public class StablePartner {
         }
 
         public boolean hasPart() {
-            return (partner != -1);
+            if (partner == -1) {
+                return false;
+            }
+            return true;
         }
 
-        public int getGirl(int girlId) {
-            return girls[girlId];
+        public GirlList getGirlFromOrd(int order) {
+            return girlLists[order];
+        }
+
+        public GirlList getGirlFromId(int id) {
+            int ord = 0;
+            while (girlLists[ord].getId() != id) {
+                ord++;
+            }
+            return girlLists[ord];
         }
     }
 
     private static class Girl {
-        private int[] boys = new int[3];
+        private BoyList[] boyLists = new BoyList[4];
         private int partner = -1;
 
-        public Girl(int a, int b, int c) {
-            boys[0] = a;
-            boys[1] = b;
-            boys[2] = c;
+        private class BoyList {
+            private boolean isAspired = false;
+            private int id;
+
+            public BoyList(int id) {
+                this.id = id;
+            }
+
+            public void setIsAspired(boolean flag) {
+                this.isAspired = flag;
+            }
+
+            public boolean getAspired() {
+                return isAspired;
+            }
+
+            public int getId() {
+                return id;
+            }
+        }
+
+        public Girl(int a, int b, int c, int d) {
+            boyLists[0] = new BoyList(a);
+            boyLists[1] = new BoyList(b);
+            boyLists[2] = new BoyList(c);
+            boyLists[3] = new BoyList(d);
         }
 
         public int getPartner() {
@@ -103,19 +173,22 @@ public class StablePartner {
         }
 
         public boolean hasPart() {
-            return (partner != -1);
+            if (partner == -1) {
+                return false;
+            }
+            return true;
         }
 
-     /*   public int getBoys(int boyId) {
-            return boys[boyId];
-        }*/
+        public BoyList getBoyFromOrd(int ord) {
+            return boyLists[ord];
+        }
 
-        public int getId(int boy) {
-            int i = 0;
-            while (boys[i] != boy) {
-                i++;
+        public BoyList getBoyFromId(int id) {
+            int ord = 0;
+            while (boyLists[ord].getId() != id) {
+                ord++;
             }
-            return i;
+            return boyLists[ord];
         }
     }
 }
