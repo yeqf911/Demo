@@ -6,21 +6,19 @@ package stabalpartner;
 public class StablePartner {
     public static void main(String[] args) {
         Boy[] boys = new Boy[4];
-        boys[3] = new Boy(3, 0, 1, 2);
-        boys[2] = new Boy(1, 2, 0, 3);
-        boys[1] = new Boy(3, 1, 2, 0);
-        boys[0] = new Boy(2, 0, 3, 1);
+        boys[0] = new Boy(2, 3, 1, 0);
+        boys[1] = new Boy(2, 1, 3, 0);
+        boys[2] = new Boy(0, 2, 3, 1);
+        boys[3] = new Boy(1, 3, 2, 0);
         Girl[] girls = new Girl[4];
-        girls[0] = new Girl(3, 0, 2, 1);
-        girls[1] = new Girl(0, 2, 1, 3);
-        girls[2] = new Girl(0, 1, 2, 3);
-        girls[3] = new Girl(3, 0, 2, 1);
+        girls[0] = new Girl(0, 3, 2, 1);
+        girls[1] = new Girl(0, 1, 2, 3);
+        girls[2] = new Girl(0, 2, 3, 1);
+        girls[3] = new Girl(1, 0, 3, 2);
 
         boolean flag = true;
 
         while (flag) {
-
-
             for (int i = 0; i < 4; i++) {
                 Boy boy = boys[i];
                 if (!boy.hasPart()) {
@@ -54,10 +52,9 @@ public class StablePartner {
                 }
             }
 
-            /*for (int i = 0; i < 4; i++) {
+      /*      for (int i = 0; i < 4; i++) {
                 for (int j = 0; j < 4; j++) {
                     girls[i].getBoyFromOrd(j).setIsAspired(false);
-
                 }
             }*/
 
