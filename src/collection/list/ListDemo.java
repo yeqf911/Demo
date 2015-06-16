@@ -13,7 +13,7 @@ public class ListDemo {
 
     public static void main(String[] args) {
         List<String> lists = null;
-        lists = new ArrayList();
+        lists = new ArrayList<>();
         lists.add("A");
         lists.add("B");
         lists.add("B");
