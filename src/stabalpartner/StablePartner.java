@@ -52,12 +52,6 @@ public class StablePartner {
                 }
             }
 
-      /*      for (int i = 0; i < 4; i++) {
-                for (int j = 0; j < 4; j++) {
-                    girls[i].getBoyFromOrd(j).setIsAspired(false);
-                }
-            }*/
-
             if (boys[0].hasPart() && boys[1].hasPart() && boys[2].hasPart() && boys[3].hasPart()) {
                 flag = false;
             }
